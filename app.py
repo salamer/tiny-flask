@@ -7,11 +7,11 @@ app = Flask(__name__)
 def hello_world():
     print("hello")
     l = []
-    base = "*" * 1024 * 1024 * 1024
-    for i in range(0, 1024):
-        l.append(base * i + "{}".format(i))
-    print("mem", sys.getsizeof(l))
-    return "<p>Hello, Aljun!</p> {}".format(sys.getsizeof(l))
+    base = bytearray(
+        1024 * 1024 * 512
+    )
+    print(sys.getsizeof(base))
+    return "<p>Hello, Aljun!</p> {}".format(sys.getsizeof(base))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='8080', debug=False)
