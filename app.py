@@ -11,7 +11,7 @@ def hello_world():
     for i in range(0, 1024*1024):
         l.append(base)
     print("mem", sys.getsizeof(l))
-    return "<p>Hello, Aljun!</p>"
+    return "<p>Hello, Aljun!</p>" + sys.getsizeof(l).__str__
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='8080', debug=False)
