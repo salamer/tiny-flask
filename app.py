@@ -9,7 +9,7 @@ def hello_world():
     l = []
     base = "*" * 1024 * 1024
     for i in range(0, 1024*1024):
-        l.append(base)
+        l.append(base * i + "{}".format(i))
     print("mem", sys.getsizeof(l))
     return "<p>Hello, Aljun!</p> {}".format(sys.getsizeof(l))
 
