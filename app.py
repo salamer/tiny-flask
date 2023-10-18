@@ -1,7 +1,8 @@
-from flask import Flask
+from flask import Flask, response, make_response
 import sys
 
 app = Flask(__name__)
+
 
 @app.route("/")
 def hello_world():
@@ -15,6 +16,28 @@ def hello_world():
     # print(sys.getsizeof(base))
     # return "<p>Hello, Aljun!</p> {}".format(sys.getsizeof(base))
     return "<p>Hello, Aljun!</p> {}".format(x)
+
+
+@app.route("/cookie")
+def cookie():
+    resp = make_response({"result": "ok"})
+    resp.set_cookie(
+        key="hello",
+        value="world",
+        httponly=True,
+        domain="https://leapcell.dev"
+    )
+    return resp
+
+@app.route("/cookie2")
+def cookie2():
+    resp = make_response({"result": "ok"})
+    resp.set_cookie(
+        key="hello",
+        value="world",
+    )
+    return resp
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='8080', debug=False)
