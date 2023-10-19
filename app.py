@@ -27,6 +27,12 @@ def cookie():
         httponly=True,
         domain="https://leapcell.dev"
     )
+    resp.set_cookie(
+        key="qqq",
+        value="wwww",
+        httponly=True,
+        domain="https://leapcell.dev"
+    )
     return resp
 
 @app.route("/cookie2")
@@ -35,6 +41,10 @@ def cookie2():
     resp.set_cookie(
         key="hello",
         value="world",
+    )
+    resp.set_cookie(
+        key="hi",
+        value="aljun",
     )
     return resp
 
