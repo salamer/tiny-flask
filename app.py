@@ -27,14 +27,14 @@ def cookie():
         value="world",
         httponly=True,
         domain="https://leapcell.dev",
-        expires=datetime.date.today() + datetime.timedelta(days=1)
+        expires=datetime.date.today() + datetime.timedelta(days=7)
     )
     resp.set_cookie(
         key="qqq",
         value="wwww",
         httponly=True,
         domain="https://leapcell.dev",
-        expires=datetime.date.today() + datetime.timedelta(days=1)
+        expires=datetime.date.today() + datetime.timedelta(days=7)
     )
     return resp
 
@@ -47,14 +47,14 @@ def cookie3():
         value="world",
         httponly=True,
         domain=".leapcell.dev",
-        expires=datetime.date.today() + datetime.timedelta(days=1)
+        expires=datetime.date.today() + datetime.timedelta(days=7)
     )
     resp.set_cookie(
         key="qqq",
         value="wwww",
         httponly=True,
         domain=".leapcell.dev",
-        expires=datetime.date.today() + datetime.timedelta(days=1)
+        expires=datetime.date.today() + datetime.timedelta(days=7)
     )
     return resp
 
@@ -65,12 +65,12 @@ def cookie2():
     resp.set_cookie(
         key="hello",
         value="world",
-        expires=datetime.date.today() + datetime.timedelta(days=1)
+        expires=datetime.date.today() + datetime.timedelta(days=7)
     )
     resp.set_cookie(
         key="hi",
         value="aljun",
-        expires=datetime.date.today() + datetime.timedelta(days=1)
+        expires=datetime.date.today() + datetime.timedelta(days=7)
     )
     return resp
 
