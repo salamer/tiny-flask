@@ -1,5 +1,6 @@
 from flask import Flask, make_response
 import sys
+import datetime
 
 app = Flask(__name__)
 
@@ -25,15 +26,18 @@ def cookie():
         key="hello",
         value="world",
         httponly=True,
-        domain="https://leapcell.dev"
+        domain="https://leapcell.dev",
+        expires=datetime.date.today() + datetime.timedelta(days=1)
     )
     resp.set_cookie(
         key="qqq",
         value="wwww",
         httponly=True,
-        domain="https://leapcell.dev"
+        domain="https://leapcell.dev",
+        expires=datetime.date.today() + datetime.timedelta(days=1)
     )
     return resp
+
 
 @app.route("/cookie3")
 def cookie3():
@@ -42,15 +46,18 @@ def cookie3():
         key="hello",
         value="world",
         httponly=True,
-        domain=".leapcell.dev"
+        domain=".leapcell.dev",
+        expires=datetime.date.today() + datetime.timedelta(days=1)
     )
     resp.set_cookie(
         key="qqq",
         value="wwww",
         httponly=True,
-        domain=".leapcell.dev"
+        domain=".leapcell.dev",
+        expires=datetime.date.today() + datetime.timedelta(days=1)
     )
     return resp
+
 
 @app.route("/cookie2")
 def cookie2():
@@ -58,10 +65,12 @@ def cookie2():
     resp.set_cookie(
         key="hello",
         value="world",
+        expires=datetime.date.today() + datetime.timedelta(days=1)
     )
     resp.set_cookie(
         key="hi",
         value="aljun",
+        expires=datetime.date.today() + datetime.timedelta(days=1)
     )
     return resp
 
