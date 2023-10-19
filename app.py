@@ -35,6 +35,23 @@ def cookie():
     )
     return resp
 
+@app.route("/cookie3")
+def cookie3():
+    resp = make_response({"result": "ok"})
+    resp.set_cookie(
+        key="hello",
+        value="world",
+        httponly=True,
+        domain=".leapcell.dev"
+    )
+    resp.set_cookie(
+        key="qqq",
+        value="wwww",
+        httponly=True,
+        domain=".leapcell.dev"
+    )
+    return resp
+
 @app.route("/cookie2")
 def cookie2():
     resp = make_response({"result": "ok"})
