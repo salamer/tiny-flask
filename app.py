@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    print("hello")
+    # print("hello")
     # l = []
     # x = bytearray(1024*1024*1000)
 
