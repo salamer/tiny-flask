@@ -79,6 +79,17 @@ def headers():
     print(request.headers)
     return {"headers": dict(request.headers)}
 
+@app.route("/multi_string")
+def multi_string():
+    return "Multi\nLine\nResponse" * 1000
+
+@app.route("/multi_json")
+def multi_json():
+    res = {}
+    for i in range(1000):
+        res[i] = i
+    return res
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='8080', debug=False)
