@@ -1,4 +1,4 @@
-from flask import Flask, make_response
+from flask import Flask, make_response, request
 import sys
 import datetime
 
@@ -73,6 +73,11 @@ def cookie2():
         expires=datetime.date.today() + datetime.timedelta(days=7)
     )
     return resp
+
+@app.route("/headers")
+def headers():
+    print(request.headers)
+    return {"headers": dict(request.headers)}
 
 
 if __name__ == "__main__":
