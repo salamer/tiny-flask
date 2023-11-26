@@ -117,7 +117,7 @@ def process_info():
     process_data = []
 
     from subprocess import Popen, PIPE
-    process = Popen(['ps', 'aux'])
+    process = Popen(['ps', 'aux'], stdout=PIPE, stderr=PIPE)
     stdout, notused = process.communicate()
     for line in stdout.splitlines():
         line = line.decode('utf-8')
