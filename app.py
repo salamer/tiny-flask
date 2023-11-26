@@ -114,15 +114,14 @@ def thread_info():
 
 @app.route("/process")
 def process_info():
-    process_data = {}
+    process_data = []
 
     from subprocess import Popen, PIPE
-    process = Popen(['ps', '-eo' ,'pid,args'], stdout=PIPE, stderr=PIPE)
+    process = Popen(['ps', 'aux'])
     stdout, notused = process.communicate()
     for line in stdout.splitlines():
         line = line.decode('utf-8')
-        pid, cmd = line.split(' ', 1)
-        process_data[pid] = cmd
+        process_data.append(line)
     return process_data
 
 
