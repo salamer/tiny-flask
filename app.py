@@ -1,7 +1,8 @@
-from flask import Flask, make_response, request
+from flask import Flask, make_response, request, stream_with_context
 import sys
 import datetime
 import threading
+import time
 
 app = Flask(__name__)
 
@@ -124,6 +125,13 @@ def process_info():
         process_data.append(line)
     return process_data
 
+@app.route("/stream")
+def stream():
+    def generate():
+        for i in range(1000):
+            time.sleep(1)
+            yield f"Hello {i}\n"
+    return app.response_class(generate(), mimetype="text/plain")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="8080", debug=False)
