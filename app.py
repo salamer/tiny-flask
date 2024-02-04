@@ -130,8 +130,9 @@ def stream():
     def generate():
         for i in range(1000):
             time.sleep(1)
+            print(f"Hello {i}")
             yield f"Hello {i}\n"
-    return app.response_class(generate(), mimetype="text/plain")
+    return generate(), {"Content-Type": "text/plain"}
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="8080", debug=False)
