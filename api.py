@@ -7,8 +7,8 @@ app = FastAPI()
 
 
 async def fake_video_streamer():
-    for i in range(100):
-        await asyncio.sleep(0.5)
+    for i in range(30):
+        await asyncio.sleep(0.1)
         print(f"yielding {i}")
         yield f"some fake video bytes\n"
 
